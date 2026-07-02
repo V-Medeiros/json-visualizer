@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSON Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>JSON Visualizer</h1>
+        </div>
+        <div class="theme-toggle" aria-label="Alternar tema">
+          <span>Claro</span>
+          <button id="themeButton" class="switch" type="button" aria-pressed="false">
+            <span></span>
+          </button>
+          <span>Escuro</span>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="editor-pane" aria-labelledby="editorTitle">
+          <div class="pane-header">
+            <div>
+              <h2 id="editorTitle">Editor</h2>
+              <p id="jsonStatus" class="status valid">JSON válido</p>
+            </div>
+            <div class="toolbar">
+              <button id="formatButton" type="button" title="Formatar JSON">Formatar</button>
+              <button id="minifyButton" type="button" title="Minificar JSON">Minificar</button>
+              <button id="clearButton" type="button" class="ghost" title="Limpar editor">Limpar</button>
+            </div>
+          </div>
+
+          <label class="sr-only" for="jsonInput">Cole seu JSON</label>
+          <textarea id="jsonInput" spellcheck="false" autocomplete="off" aria-describedby="errorBox"></textarea>
+
+          <div id="errorBox" class="error-box" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="viewer-pane" aria-labelledby="viewerTitle">
+          <div class="pane-header viewer-header">
+            <div>
+              <h2 id="viewerTitle">Árvore</h2>
+              <p id="treeSummary">0 nós</p>
+            </div>
+            <div class="toolbar">
+              <button id="expandAllButton" type="button" title="Expandir todos os nós">Expandir</button>
+              <button id="collapseAllButton" type="button" title="Recolher todos os nós">Recolher</button>
+            </div>
+          </div>
+
+          <div class="search-row">
+            <label class="sr-only" for="searchInput">Buscar por chave ou valor</label>
+            <input id="searchInput" type="search" placeholder="Buscar chave ou valor..." autocomplete="off">
+            <span id="searchCount">0 resultados</span>
+          </div>
+
+          <div id="treeView" class="tree-view" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <section class="examples" aria-labelledby="examplesTitle">
+        <div>
+          <h2 id="examplesTitle">Exemplos prontos</h2>
+        </div>
+        <div class="example-grid">
+          <button type="button" data-example="api">Resposta de API</button>
+          <button type="button" data-example="config">Configuração</button>
+          <button type="button" data-example="catalog">Catálogo</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
